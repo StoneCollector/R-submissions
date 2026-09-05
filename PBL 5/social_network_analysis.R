@@ -19,6 +19,8 @@ closeness(g1, mode='all', weights = NA)
 betweenness(g1, directed=T, weights=NA)
 edge_betweenness(g1, directed=T, weights=NA)
 
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
 data <- read.csv('networkdata.csv', header=T)
 y <- data.frame(data$first, data$second)
 
