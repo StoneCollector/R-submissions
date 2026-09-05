@@ -71,6 +71,13 @@ png('community_detection.png', width=800, height=600)
 plot(cnet, net)
 dev.off()
 
+
+cat("Degree (net):\n"); print(sort(V(net)$degree, decreasing=TRUE))
+cat("\nCloseness (net):\n"); print(closeness(net, mode='all', weights=NA))
+cat("\nBetweenness (net):\n"); print(betweenness(net, directed=TRUE, weights=NA))
+cat("\nEdge density (net):\n"); print(edge_density(net, loops=FALSE))
+cat("\nReciprocity (net):\n"); print(reciprocity(net))
+
 cat("1. Degree histogram — Most nodes (35 of them) have very low degree (0–10), and only a handful have high degree (40–70). This is a classic heavy-tailed / power-law-like distribution, typical of real-world social networks: a few well-connected hubs, many peripheral nodes.")
 
 cat("2. Basic network plot — Shows the raw structure: a dense, tangled core cluster (AA, CA, CC, CD, DD, BB, BF, etc.) with a long tail of loosely attached or single-link nodes (LB, GC, KC, LA, FD, etc.) hanging off the edges.")
